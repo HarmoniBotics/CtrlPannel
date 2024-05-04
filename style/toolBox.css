@@ -1,0 +1,53 @@
+/* 设置toolbox容器样式 */
+/* 隐藏scrollbar，但是可以滚动 */
+.blocklyToolboxDiv {
+    overflow: auto;
+}
+
+.blocklyToolboxDiv::-webkit-scrollbar {
+    width: 0.5em;
+    background-color: transparent;
+}
+
+.blocklyToolboxDiv::-webkit-scrollbar-thumb {
+    background-color: transparent;
+}
+
+/* 分类项的布局 */
+.blocklyToolboxContents {
+    padding: 0.5em;
+}
+
+/* https://developers.google.com/blockly/guides/configure/web/toolbox#category_css */
+
+/* 分类的可视容器 */
+.blocklyTreeRow {
+    padding: 3px;
+    margin: 0.5em 0;
+    border-radius: 10px;
+    height: initial;
+    min-width: 100px;
+}
+
+.blocklyTreeRow:hover {
+    /* 颜色会被customCategory.js中的addColourBorder_覆盖，设置了没用 */
+    border-radius: 15px;
+}
+
+/* 上面↑的管理可见样式，下面↓的管理布局 */
+
+/* 图标和类名的布局 */
+.blocklyTreeRowContentContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 图标 */
+/* .blocklyTreeIcon {
+
+} */
+/* 类名 */
+.blocklyTreeLabel {
+    color: #fff;
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlocklyTemplate</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/toolBox.css">
+    <link rel="stylesheet" href="./style/Console.css">
+</head>
+<body>
+    <input type="file" id="importFile" style="display: none;" multiple="multiple" onchange="uploaded(this.files); this.value='';">
+    <div class="TopPannnel">
+        <div class="leftPannel subPannel">
+            <button class="TopPannnel-btn" id="loadButton">untitled</button>
+            <button class="TopPannnel-btn" id="saveButton">SaveAs</button>
+            <button class="TopPannnel-btn" id="exportButton">Export</button>
+            <button class="TopPannnel-btn" id="newButton">NEW</button>
+        </div>
+        <div class="rightPannel subPannel">
+            <button class="TopPannnel-btn" id="connectButton">Connect</button>
+            <button class="TopPannnel-btn" id="clearButton">Clear</button>
+            <button class="TopPannnel-btn" id="runButton">RUN</button>
+        </div>
+        <div id="projects">
+            <ul>
+            </ul>
+            <label for="importFile">
+                <div id="importButton">从文件导入</div>
+            </label>
+        </div>
+    </div>
+    <div class="BigContainer">
+        <div id="blocklyDiv"></div>
+        <div id="separateBar"></div>
+        <div id="commandLine">
+            <div style="color: white;">
+                命令控制<br>
+                <label for="ifOnScreen" style="font-size: 0.3em;">显示控制台输出</label>
+                <input type="checkbox" id="ifOnScreen" style="vertical-align: middle;" checked="true">
+            </div>
+            <div class="quickCommand">
+                <button onclick="ConsolePannel.sendCMD('help')">帮助</button>
+                <button onclick="ConsolePannel.sendCMD('clear')">清屏</button>
+                <button onclick="ConsolePannel.sendCMD('notelist')">音符列表</button>
+                <button onclick="ConsolePannel.sendCMD('note 0x11')">中音C</button>
+                <button onclick="ConsolePannel.sendCMD('intensity 0xffff')">强度最大</button>
+            </div>
+            <div class="msgShow">
+                <div id="commandMsg"></div>
+                <div class="zhanwei"></div>
+            </div>
+            <div class="typeinDiv">
+                <input type="text" id="commandIn" placeholder="help查看指令帮助"></input>
+                <button id="sendCommand">↑</button>
+            </div>
+        </div>
+    </div>
+</body>
+<!-- 加载环境 大包默认加载三个包和英文包 修改了其中媒体文件的地址-->
+<script src="./core/unpkg.com_blockly@10.0.2_blockly.min.js"></script>
+<!-- 老版的库没有connection.reconnect函数, 所以放弃使用 -->
+<!-- 可以用三个替代大包 -->
+<!-- <script src="./core/blockly_compressed.js"></script>
+<script src="./core/blocks_compressed.js"></script>
+<script src="./core/javascript_compressed.js"></script> -->
+<!-- 全局、局部变量插件 -->
+<script src="./core/lexicalVariable.js"></script>
+<!-- 加载中文(覆盖英文包的内容) -->
+<script src="./core/zh-hans.js"></script>
+<!-- 自定义消息 -->
+<script src="./src/blocklyConfig/zh-hans-extraMsg.js"></script>
+<!-- 右键菜单 -->
+<script src="./src/blocklyConfig/contextMenu.js"></script>
+<!-- 自定义toolbox项 可以不加载-->
+<!-- <script src="./src/customToolBoxLabel.js"></script> -->
+ <!-- 自定义类别样式 -->
+<script src="./src/blocklyConfig/customCategory.js"></script>
+<!-- 注册基本块 -->
+<script src="./src/blocklyConfig/extraBlocks.js"></script>
+<script src="./core/dictionaries.js"></script>
+<!-- 块构成工具箱 但不注册 -->
+<script src="./src/blocklyConfig/toolBox.js"></script>
+<!-- 加载主题 -->
+<script src="./src/blocklyConfig/darkTheme.js"></script>
+<!-- 存储相关 -->
+<script src="./src/storage.js"></script>
+<!-- UI相关 -->
+<script src="./src/UI/loadProjects.js"></script>
+<!-- 背包插件 -->
+<script src="./core/backpack.js"></script>
+
+<!-- 额外的API -->
+<script src="./src/moreAPI/serialBlocks.js"></script>
+<script src="./src/moreAPI/midi.js"></script>   <!-- 来源于我的项目：https://github.com/madderscientist/je_score_operator -->
+<script src="./src/moreAPI/midiBlocks.js"></script>
+<script src="./src/robotSerial.js"></script>
+<script src="./src/moreAPI/robotBlocks.js"></script>
+
+<!-- 加载界面 绑定事件 -->
+<script src="./src/asyncSupport.js"></script>
+<script src="./src/main.js"></script>
+<!-- 机器人连接相关 -->
+<script src="./src/robotMain.js"></script>
+</html>

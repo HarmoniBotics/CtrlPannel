@@ -1,0 +1,165 @@
+html,
+body {
+  --TopPannelHeight: 2em;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.BigContainer {
+  display: flex;
+  width: 100%;
+  height: calc(100% - var(--TopPannelHeight));
+}
+#blocklyDiv {
+  flex: 1;
+  height: 100%;
+  background-color: rgb(45, 45, 45);
+}
+#separateBar {
+  width: 0.2em;
+  height: 100%;
+  background-color: rgb(45, 45, 45);
+  transition: 0.1s;
+  cursor:e-resize;
+  z-index: 1;
+}
+#commandLine {
+  width: 300px;
+  height: 100%;
+  background-color: rgb(40,40,40);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.1em;
+}
+#separateBar:hover {
+  width: 0.4em;
+  margin: 0 -0.1em 0 0;
+  background-color: rgb(0, 127, 212);
+}
+
+
+.TopPannnel {
+  height: var(--TopPannelHeight);
+  background-color: #1d1d1d;
+}
+
+.subPannel {
+  height: 100%;
+  margin: 0px;
+  height: 0px;
+}
+
+.rightPannel {
+  position: absolute;
+  right: 0px;
+}
+
+.leftPannel {
+  position: absolute;
+  left: 0px;
+}
+
+.TopPannnel-btn {
+  border: none;
+  height: var(--TopPannelHeight);
+  background-color: transparent;
+  font-size: 1em;
+  line-height: 2em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  margin: 0px -3px;
+  transition: .2s;
+  cursor: pointer;
+  color: rgb(127, 127, 127);
+}
+
+.TopPannnel-btn:hover,
+#projects ul li:hover,
+#importButton:hover {
+  background-color: rgb(225, 225, 225);
+}
+
+.TopPannnel-btn:active,
+#projects ul li:active,
+#importButton:active {
+  color: white;
+}
+
+#loadButton::after {
+  position: absolute;
+  content: "▶";
+  background-color: transparent;
+  transform: rotate(90deg) translateY(-5px) scale(0.5);
+}
+
+/* 选择项目的下拉菜单 */
+#projects {
+  position: absolute;
+  z-index: 99;
+  left: 0px;
+  top: var(--TopPannelHeight);
+  padding: 0;
+  background-color: #2c2c2c;
+  border-radius: 0 0 6px 6px;
+  border-left: 2px solid #1d1d1d;
+  border-right: 2px solid #1d1d1d;
+  border-bottom: 2px solid #1d1d1d;
+  display: none;
+  opacity: 0;
+  transition: opacity .2s;
+  box-shadow: 0 0.5em 1em black;
+}
+
+#projects ul {
+  --itemMargin: 0.15em;
+  --itemPadding: 0.5em;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  padding: 0.2em 0;
+  margin: 0px;
+}
+
+#projects ul li {
+  list-style: none;
+  margin: var(--itemMargin);
+  padding: var(--itemPadding);
+  display: flex;
+  justify-content: space-between;
+  height: 1.8em;
+  color: rgb(190, 190, 190);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#projects ul li>div:nth-child(1) {
+  margin: 0 0.4em;
+}
+
+#projects ul li>div:nth-child(2) {
+  margin: 0 0.4em 0 1em;
+}
+
+#projects ul li::after {
+  position: absolute;
+  content: '';
+  height: 2px;
+  width: calc(100% - 2 * (var(--itemMargin) + var(--itemPadding)));
+  background-color: rgb(127, 127, 127);
+  transform: translateY(1.6em);
+}
+
+#importButton {
+  text-align: center;
+  justify-content: space-between;
+  height: 2em;
+  color: rgb(190, 190, 190);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 1em;
+  margin: 0 0.15em;
+  line-height: 2em;
+}

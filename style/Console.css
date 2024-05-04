@@ -1,0 +1,71 @@
+.quickCommand {
+    width: 100%;
+    height: auto;
+    padding: 0.4em 0.5em 0.2em 0.5em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-bottom: solid rgb(65,65,65) 2px;
+    overflow: hidden;
+}
+.quickCommand button {
+    height: 2.4em;
+    border-radius: 1.2em;
+    line-height: 1em;
+    text-align: center;
+    min-width: 3em;
+    margin: 0 0 0.1em 0;
+    background-color: lightcoral;
+}
+.msgShow {
+    flex: 1;
+    width: 100%;
+    padding: 0.2em 1em 0 0;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+#commandMsg {
+    width: 100%;
+    height: auto;
+    color: rgb(200,200,200);
+    /* word-break: break-all;
+    word-wrap: break-word; 用下面一行代替了这两行*/
+    white-space: pre-wrap;
+    padding: 0 20em 0 0.6em;
+    font-size: 1em;
+    font-family: monospace;
+}
+.msgShow .zhanwei {
+    height: 10em;
+    visibility: hidden;
+}
+
+
+.typeinDiv {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.2em 0 0.2em 0;
+    border-top: solid rgb(65,65,65) 2px;
+}
+#sendCommand {
+    border-radius: 50%;
+    height: 3.2em;
+    width: 3.2em;
+    margin: 0 0.2em 0 0.1em;
+    background-color: #fff;
+}
+#commandIn {
+    border-radius: 1.4em;
+    flex: 1;
+    font-size: 1.1em;
+    background-color: white;
+    margin: 0 0.1em 0 0.2em;
+    padding: 0.5em 0 0.5em 0.7em;
+    box-sizing: border-box;
+}
