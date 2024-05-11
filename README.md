@@ -1,5 +1,5 @@
 # 口琴机器人上位机
-基于Google Blockly库的机器人图形化编程上位机，契合“教育”的目的。<br>
+基于Google Blockly库的机器人图形化编程上位机，契合“教育”的目的。[在线使用](https://harmonibotics.github.io/CtrlPannel/)<br>
 框架来自于[BlocklyTemplate](https://github.com/madderscientist/BlocklyTemplate)，对原生Blockly进行了改造，并去npm化，使之开发与使用无需配置。<br>
 下面将就“口琴机器人”方面展开介绍。
 
@@ -55,8 +55,8 @@
 ### 强度更改
 | 设备1 | 方向 | 命令类型 | 数据 | 设备2 |
 | -- | -- | -- | -- | -- |
-| 上位机 | → | 0x31(更改强度) | 强度 | 下位机 |
-| 上位机 | ← | 0x31(回应请求) | 强度 | 下位机 |
+| 上位机 | → | 0x32(更改强度) | 强度 | 下位机 |
+| 上位机 | ← | 0x32(回应请求) | 强度 | 下位机 |
 
 强度取值：0~4095，用两个byte表示，地址由小到大表示高八位和低八位，即：
 - frame[2] = Intensity >> 8
