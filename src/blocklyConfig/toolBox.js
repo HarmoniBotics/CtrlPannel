@@ -768,6 +768,10 @@ const toolbox = {
                 },
                 {
                     "kind": "block",
+                    "type": "dictionaries_lookup_dot"
+                },
+                {
+                    "kind": "block",
                     "type": "dictionaries_lookup"
                 },
                 {

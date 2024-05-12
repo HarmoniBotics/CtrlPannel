@@ -422,6 +422,7 @@ Blockly.Msg['DICTIONARIES_CREATE_WITH_INPUT_WITH'] = '创建字典';
 Blockly.Msg['DICTIONARIES_PAIR_TOOLTIP'] = "创建一个键值对";
 Blockly.Msg['DICTIONARIES_PAIR'] = "键%1值%2";
 Blockly.Msg['DICTIONARIES_LOOKUP'] = "在字典%1中取键%2若没找到返回%3";
+Blockly.Msg['DICTIONARIES_LOOKUP_DOT'] = "在字典%1中取键%2";
 Blockly.Msg['DICTIONARIES_SET_PAIR'] = "修改(设置)字典%1中键%2的值为%3";
 Blockly.Msg['DICTIONARIES_RECURSIVE_SET'] = "设置字典%1路径%2的值为%3";
 Blockly.Msg['DICTIONARIES_RECURSIVE_LOOKUP'] = "在字典%1中按路径%2取值 没找到返回%3";

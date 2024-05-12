@@ -200,8 +200,8 @@ Blockly.JavaScript.forBlock['dictionaries_getters'] = function (block, generator
                 return [`${key}: ${value}`, generator.ORDER_NONE];
             }
         }, {
-            "type": "dictionaries_lookup",
-            "message0": "%{BKY_DICTIONARIES_LOOKUP}",
+            "type": "dictionaries_lookup_dot",
+            "message0": "%{BKY_DICTIONARIES_LOOKUP_DOT}",
             "args0": [
                 {
                     "type": "input_value",
@@ -212,6 +212,28 @@ Blockly.JavaScript.forBlock['dictionaries_getters'] = function (block, generator
                     "name": "KEY",
                     "check": "String",
                     "align": "RIGHT"
+                }
+            ],
+            "output": null,
+            "style": "dictionary_blocks",
+            "tooltip": "在字典中获取key的值，若没找到则返回空",
+            "JavaScript": function (block, generator) {
+                let dict = generator.valueToCode(block, 'DICT', generator.ORDER_ATOMIC);
+                let key = generator.valueToCode(block, 'KEY', generator.ORDER_ATOMIC);
+                return [`${dict}?.[${key}]`, generator.ORDER_NONE];
+            }
+        }, {
+            "type": "dictionaries_lookup",
+            "message0": "%{BKY_DICTIONARIES_LOOKUP}",
+            "args0": [
+                {
+                    "type": "input_value",
+                    "name": "DICT",
+                    "align": "RIGHT"
+                }, {
+                    "type": "input_value",
+                    "name": "KEY",
+                    "align": "RIGHT"
                 }, {
                     "type": "input_value",
                     "name": "NOTFOUND",
@@ -220,12 +242,12 @@ Blockly.JavaScript.forBlock['dictionaries_getters'] = function (block, generator
             ],
             "output": null,
             "style": "dictionary_blocks",
-            "tooltip": "在字典中获取key的值",
+            "tooltip": "在字典中获取key的值。不要用此块取函数调用，因为this指向改变了",
             "JavaScript": function (block, generator) {
                 let dict = generator.valueToCode(block, 'DICT', generator.ORDER_ATOMIC);
                 let key = generator.valueToCode(block, 'KEY', generator.ORDER_ATOMIC);
                 let notfound = generator.valueToCode(block, 'NOTFOUND', generator.ORDER_ATOMIC) || undefined;
-                return [`(${key} in ${dict})?${dict}[${key}]:${notfound}`, generator.ORDER_NONE];
+                return [`((d,k,n)=>(k in d)?d[k]:n)(${dict},${key},${notfound})`, generator.ORDER_NONE];
             }
         }, {
             "type": "dictionaries_set_pair",
@@ -249,7 +271,7 @@ Blockly.JavaScript.forBlock['dictionaries_getters'] = function (block, generator
             "previousStatement": null,
             "nextStatement": null,
             "style": "dictionary_blocks",
-            "tooltip": "设置字典键值",
+            "tooltip": "设置字典键值。",
             "JavaScript": function (block, generator) {
                 let dict = generator.valueToCode(block, 'DICT', generator.ORDER_ATOMIC);
                 let key = generator.valueToCode(block, 'KEY', generator.ORDER_ATOMIC);
