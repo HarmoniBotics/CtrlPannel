@@ -26,6 +26,13 @@ var ConsolePannel = {
         document.getElementById('ifOnScreen').onchange = () => {
             this.consoleOnDiv(document.getElementById('ifOnScreen').checked);
         };
+        document.getElementById('ifautoport').onchange = function () {
+            if (this.checked) {
+                robot.autoPort = robotSerial.prototype.autoPort;
+            } else {
+                window.robot.autoPort = async function () { return null; }
+            }
+        }
     },
     sendCMD: function (command) {  // !! 重要函数
         this.toScreen('<span style="color:lightgreen">[user] </span>' + command);
@@ -64,16 +71,16 @@ var ConsolePannel = {
                 if (!robot.port && !confirm("尚未连接到机器人，是否继续？")) return;
                 else {
                     robot.confirm()
-                    .then(() => console.log('验证成功'))
-                    .catch(() => console.error('验证失败'));
+                        .then(() => console.log('验证成功'))
+                        .catch(() => console.error('验证失败'));
                 } return;
             case 'note':
                 if (args.length != 2) console.error('note指令需要一个参数');
                 if (!robot.port && !confirm("尚未连接到机器人，是否继续？")) return;
                 else {
                     robot.note(parseInt(args[1]))
-                    .then(() => console.log('发送成功'))
-                    .catch(() => console.error('发送失败'));
+                        .then(() => console.log('发送成功'))
+                        .catch(() => console.error('发送失败'));
                 } return;
             case 'notelist':
                 if (args.length > 1) console.error('notelist指令不需要参数');
@@ -93,8 +100,8 @@ var ConsolePannel = {
                 if (!robot.port && !confirm("尚未连接到机器人，是否继续？")) return;
                 else {
                     robot.intensity(parseInt(args[1]))
-                    .then(() => console.log('发送成功'))
-                    .catch(() => console.error('发送失败'));
+                        .then(() => console.log('发送成功'))
+                        .catch(() => console.error('发送失败'));
                 } return;
             case 'help':
                 console.log('\n' +
@@ -131,8 +138,8 @@ var ConsolePannel = {
                 await robot.setup();
                 console.log("口琴机器人连接成功");
                 this.innerHTML = "断开";
-            } catch(e) {
-                console.error(e+' 通信建立失败');
+            } catch (e) {
+                console.error(e + ' 通信建立失败');
                 this.innerHTML = "Connect";
             }
         } else {

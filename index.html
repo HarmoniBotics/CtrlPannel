@@ -18,6 +18,8 @@
             <button class="TopPannnel-btn" id="newButton">NEW</button>
         </div>
         <div class="rightPannel subPannel">
+            <label for="ifautoport" style="font-size: 0.3em; color: rgb(127, 127, 127);">选择上次的端口</label>
+            <input type="checkbox" id="ifautoport" style="vertical-align: middle;" checked="true">
             <button class="TopPannnel-btn" id="connectButton">Connect</button>
             <button class="TopPannnel-btn" id="clearButton">Clear</button>
             <button class="TopPannnel-btn" id="runButton">RUN</button>
@@ -44,7 +46,9 @@
                 <button onclick="ConsolePannel.sendCMD('clear')">清屏</button>
                 <button onclick="ConsolePannel.sendCMD('notelist')">音符列表</button>
                 <button onclick="ConsolePannel.sendCMD('note 0x11')">中音C</button>
-                <button onclick="ConsolePannel.sendCMD('intensity 0xffff')">强度最大</button>
+                <button onclick="ConsolePannel.sendCMD('note 0')">不发音</button>
+                <button onclick="ConsolePannel.sendCMD('intensity 4095')">强度最大</button>
+                <button onclick="ConsolePannel.sendCMD('intensity 0')">强度最小</button>
             </div>
             <div class="msgShow">
                 <div id="commandMsg"></div>

@@ -99,7 +99,7 @@ function setCodeTitle(newTitle) {
     });
     // 绑定按钮事件·与blocklyTemplate不同
     bindClick('runButton', (e) => {
-        if(!robotSerial.port && !confirm("尚未连接到机器人，是否继续？")) return;
+        if(!window.robot.port && !confirm("尚未连接到机器人，是否继续？")) return;
         run(e);
     });
     bindClick('clearButton', () => {  // 删除全部

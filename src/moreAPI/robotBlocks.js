@@ -7,13 +7,15 @@
     window.robot = new robotSerial(115200, 1);
     window.robot.midinote2robotnote = (midinote, low=4) => {
         let octave = ((midinote / 12) | 0) - low;
-        octave = Math.min(2, Math.max(octave, 0))
+        octave = Math.min(2, Math.max(octave, 0));
         let note = midinote % 12;
-        let sharpMap = [0,1,0,1,0,0,1,0,1,0,1,0];
-        if(sharpMap[note]) {
-            note = note - 1 + 0x40;
+        let sharpMap = [1,0,2,0,3,4,0,5,0,6,0,7];
+        if(sharpMap[note] == 0) {
+            note = sharpMap[note - 1] + 0x40;
+        } else {
+            note = sharpMap[note];
         }
-        return note | (octave<<4)
+        return note | (octave<<4);
     };
 
     // 用json定义块
